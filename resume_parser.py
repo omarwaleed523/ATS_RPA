@@ -1,6 +1,6 @@
 import os
-import docx
 import pdfplumber
+import docx
 import spacy
 import re
 import json
