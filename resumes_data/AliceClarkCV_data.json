@@ -1,0 +1,66 @@
+{
+    "Name": "Alice Clark",
+    "Email": null,
+    "Phone": null,
+    "Skills": [
+        "Data handling",
+        "Design",
+        "Development",
+        "Data Warehouse",
+        "Data analysis",
+        "Star/snow flake scema data modelling",
+        "Data warehousing",
+        "Business intelligence",
+        "Database",
+        "Database designing",
+        "Scalability",
+        "Back-up and recovery",
+        "SQL code",
+        "Stored Procedures",
+        "Functions",
+        "Views",
+        "Triggers",
+        "Indexes",
+        "Cloud platform",
+        "Microsoft Azure cloud services",
+        "Document DB",
+        "SQL Azure",
+        "Stream Analytics",
+        "Event hub",
+        "Power BI",
+        "Web Job",
+        "Web App",
+        "Azure data lake analytics",
+        "U-SQL",
+        "Machine Learning",
+        "Natural Language Processing",
+        "Big Data Handling",
+        "Analytical",
+        "Problem solving",
+        "Communication",
+        "Knowledge transfer",
+        "Interpersonal",
+        "Quick learner",
+        "Project manager",
+        "Team members",
+        "Team and independent job environments",
+        "Positive attitude"
+    ],
+    "Experience": [
+        {
+            "Title": "Software Engineer",
+            "Company": "Microsoft",
+            "Location": "Bangalore, Karnataka",
+            "Dates": "January 2000 to Present",
+            "Description": "Microsoft Rewards Live dashboards:\n- Microsoft rewards is loyalty program that rewards Users for browsing and shopping online. Microsoft Rewards members can earn points when searching with Bing, browsing with Microsoft Edge and making purchases at the Xbox Store, the Windows Store and the Microsoft Store. Plus, user can pick up bonus points for taking daily quizzes and tours on the Microsoft rewards website. Rewards live dashboards gives a live picture of usage world-wide and by markets like US, Canada, Australia, new user registration count, top/bottom performing rewards offers, orders stats and weekly trends of user activities, orders and new user registrations. the PBI tiles gets refreshed in different frequencies starting from 5 seconds to 30 minutes."
+        }
+    ],
+    "Education": [
+        {
+            "Institution": "Indian Institute of Technology",
+            "Location": "Mumbai",
+            "Degree": null,
+            "Year": 2001
+        }
+    ]
+}

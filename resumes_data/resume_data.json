@@ -1,0 +1,34 @@
+{
+    "Name": "youssef omar",
+    "Email": "youssef170omar@gmail.com",
+    "Phone": "+201018206007",
+    "Skills": [
+        "C++",
+        "C#",
+        "HTML & CSS",
+        "python",
+        "JavaScript",
+        "MongoDB",
+        "React",
+        "Git",
+        "node.js",
+        "Communication Skills",
+        "Adaptability and Flexibility",
+        "Strong analytical and problem solving skills",
+        "Load Management"
+    ],
+    "Experience": [
+        {
+            "Title": "Still student",
+            "Company": "MSA University",
+            "Dates": "09/2021 - Present"
+        }
+    ],
+    "Education": [
+        {
+            "Degree": "Computer Science",
+            "Institution": "MSA University",
+            "Dates": "09/2021 - Present"
+        }
+    ]
+}

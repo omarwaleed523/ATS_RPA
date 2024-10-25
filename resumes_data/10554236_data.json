@@ -1,0 +1,91 @@
+{
+    "Name": "ACCOUNTANT",
+    "Email": null,
+    "Phone": null,
+    "Skills": [
+        "Account reconciliations",
+        "Results-oriented",
+        "Financial reporting",
+        "Critical thinking",
+        "Accounting operations professional",
+        "Analysis of financial systems",
+        "ERP (Enterprise Resource Planning) software",
+        "Excellent facilitator",
+        "Accounting",
+        "General Accounting",
+        "Accounts Payable",
+        "Program Management"
+    ],
+    "Experience": [
+        {
+            "Company": "Company Name",
+            "Title": "Accountant",
+            "Dates": "July 2011 to November 2012",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Resource Advisor",
+            "Dates": "April 2010 to June 2011",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Staff Accountant",
+            "Dates": "July 2008 to April 2010",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Chief, Reports Branch. Accounts Maintenance and Control",
+            "Dates": "January 2007 to July 2009",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Chief, Accounts Payable Branch",
+            "Dates": "February 2000 to January 2007",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Chief, Recon and Reports Branch",
+            "Dates": "February 1999 to February 2000",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Chief, Accounts Payable Branch",
+            "Dates": "June 1995 to February 1999",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Accountant, Network Assistant Team",
+            "Dates": "June 1994 to June 1995",
+            "Location": "City , State"
+        },
+        {
+            "Company": "Company Name",
+            "Title": "Supervisor, Accounts Control Branch",
+            "Dates": "June 1993 to June 1994",
+            "Location": "City , State"
+        }
+    ],
+    "Education": [
+        {
+            "Institution": "Northern Maine Community College",
+            "Degree": "Associate",
+            "Major": "Accounting",
+            "Dates": "1994",
+            "Location": "City , State , USA"
+        },
+        {
+            "Institution": "Husson College",
+            "Degree": "Bachelors",
+            "Major": "Accounting",
+            "Dates": null,
+            "Location": null
+        }
+    ]
+}

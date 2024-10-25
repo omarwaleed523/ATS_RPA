@@ -11,7 +11,7 @@ IMAP_PORT = 993
 EMAIL_USER = 'angrym21@gmail.com'
 EMAIL_PASS = 'zysg szis hdvq kbzo'  # Use an app-specific password if 2FA is enabled
 
-ATTACHMENTS_DIR = 'D:\\me\\Mini Ant\\MSA\\Graduation Project\\Model1\\resumes'
+ATTACHMENTS_DIR = 'C:\\Users\\omarw\\PycharmProjects\\rpa_ats\\resume'
 
 
 
