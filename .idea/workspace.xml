@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="Added Send_email for automation">
+    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="Added pdf extraction for automation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume_parser.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729865393347</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added pdf extraction for automation">
+      <option name="closed" value="true" />
+      <created>1729867787191</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729867787191</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +219,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Send_email for automation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Send_email for automation" />
+    <MESSAGE value="Added pdf extraction for automation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pdf extraction for automation" />
   </component>
 </project>
