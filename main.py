@@ -11,7 +11,12 @@ def send_email():
     # Running the other Python file
     subprocess.run(["python", "send_email.py"])  # Use "python" if on Windows
 
+def resume_parser():
+    # Running the other Python file
+    subprocess.run(["python", "resume_parser.py"])  # Use "python" if on Windows
+
 
 if __name__ == "__main__":
     #run_get_email_info()
-    send_email()
+    #send_email()
+    resume_parser()
