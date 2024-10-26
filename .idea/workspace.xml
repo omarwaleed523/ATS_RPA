@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume_matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_matching_llm_gemeni.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume_matching_llm_gemeni.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_matching_llm_gemeni.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729964182616</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729966194618</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729966194618</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

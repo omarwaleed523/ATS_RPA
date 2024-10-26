@@ -36,7 +36,7 @@ class JobSimilarityMatcher:
             Candidate's Resume:
             {resume}
 
-            Please return a similarity score from 0 to 100 based on the relevance of skills, experience, and education.
+            Please return a similarity score from 0 to 100 based on the relevance and finding of skills, experience, and education from job description in the resume.
             If there are strong matches, return a high score; if there are few or no matches, return a low score
             make sure the score is in the following format : "LLM Response: ## Similarity Score: 0-100".
             """
