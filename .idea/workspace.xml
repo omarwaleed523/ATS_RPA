@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
-      <change afterPath="$PROJECT_DIR$/get_mail_by_job_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_email_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_email_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume_parser2.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_parser2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/send_email_hr.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_email_hr.py" afterDir="false" />
-    </list>
+    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -319,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729942043001</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729947291983</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729947291983</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
