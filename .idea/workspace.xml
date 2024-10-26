@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retrieve_rank.py" beforeDir="false" afterPath="$PROJECT_DIR$/retrieve_rank.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/send_email_acceptance.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_email_acceptance.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
       <recent name="C:\Users\omarw\PycharmProjects\rpa_ats\resume" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="get_mail_by_job_title" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
@@ -418,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729972281449</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729972755216</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1729972755216</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
