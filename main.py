@@ -10,7 +10,7 @@ def run_get_email_info():
 
 def send_email():
     # Running the other Python file
-    subprocess.run([sys.executable, "send_email.py"])  # Use "python" if on Windows
+    subprocess.run([sys.executable, "send_email_hr.py"])  # Use "python" if on Windows
 
 def resume_parser():
     # Running the other Python file
@@ -18,6 +18,7 @@ def resume_parser():
 
 
 if __name__ == "__main__":
-    resume_parser()
+    #HR sends an Email
+    send_email()
+    #resume_parser()
     #run_get_email_info()
-    #send_email()

@@ -1,4 +1,3 @@
-import os
 import ssl
 import json
 import re
@@ -8,8 +7,6 @@ import smtplib
 from pymongo import MongoClient
 import tkinter as tk
 from tkinter import messagebox
-from bson import ObjectId
-
 
 class JobDescriptionProcessor:
     def __init__(self, api_key, mongo_uri, db_name, collection_name):
@@ -68,7 +65,7 @@ class JobDescriptionProcessor:
 
 def send_email_with_job_info(email_sender, email_password, email_receivers, job_description, job_title, processor):
     """Send email with job description and extract relevant details for MongoDB."""
-    subject = 'New Job Description Posting'
+    subject = f'Looking for a {job_title}'
     body = job_description
 
     # Send email
@@ -144,7 +141,6 @@ if __name__ == "__main__":
     mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
     db_name = "ATS"
     collection_name = "job_descriptions"
-
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'
 

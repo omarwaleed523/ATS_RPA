@@ -8,8 +8,8 @@ IMAP_SERVER = 'imap.gmail.com'
 IMAP_PORT = 993
 
 # Email account credentials
-EMAIL_USER = 'angrym21@gmail.com'
-EMAIL_PASS = 'zysg szis hdvq kbzo'  # Use an app-specific password if 2FA is enabled
+EMAIL_USER = 'omarwaleed5234@gmail.com'
+EMAIL_PASS = 'njwf acix mevh lkgi'  # Use an app-specific password if 2FA is enabled
 
 ATTACHMENTS_DIR = 'C:\\Users\\omarw\\PycharmProjects\\rpa_ats\\resume'
 
