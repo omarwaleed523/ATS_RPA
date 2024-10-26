@@ -63,6 +63,7 @@ class CandidateRetriever:
                         {"Name": candidate_name, "Email": email_receiver},
                         {"$set": {"Acceptance Email Sent": True}}
                     )
+                    logging.info(f"Email successfully sent to {candidate_name}. Updated status in database.")
 
                 except subprocess.CalledProcessError as e:
                     logging.error(f"Failed to send email to {candidate_name} at {email_receiver}: {str(e)}")

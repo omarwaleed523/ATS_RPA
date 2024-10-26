@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities" />
+    <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +71,7 @@
       <recent name="C:\Users\omarw\PycharmProjects\rpa_ats\resume" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.retrieve_rank (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="get_mail_by_job_title" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
@@ -237,11 +239,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_mail_by_job_title" />
         <item itemvalue="Python.retrieve_rank (1)" />
         <item itemvalue="Python.resume_matching_llm_gemeni (1)" />
         <item itemvalue="Python.retrieve_rank" />
         <item itemvalue="Python.resume_matching_llm_gemeni" />
-        <item itemvalue="Python.get_mail_by_job_title" />
       </list>
     </recent_temporary>
   </component>
@@ -397,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729971680758</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729971797871</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729971797871</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
