@@ -6,10 +6,11 @@ from pymongo import MongoClient
 
 class JobSimilarityMatcher:
     def __init__(self, api_key, mongo_uri, db_name):
+        # Configure the generative AI model
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel("models/gemini-1.5-flash")  # Initialize your model
 
-        # MongoDB setup
+        # Set up MongoDB client and database
         self.client = MongoClient(mongo_uri)
         self.db = self.client[db_name]
 
@@ -26,10 +27,7 @@ class JobSimilarityMatcher:
         """Generate a similarity score between the job description and the resume."""
         instruction = (
             f"""
-            ill give you two JSON files 
-1- a job description for data engineer job position
-2- a resume for someone who applied for this position
-i want you to act as an HR recruiter. Your task is to match a job description with a candidate's resume. 
+            You are an HR recruiter. Your task is to match a job description with a candidate's resume.
             Please evaluate the following based on the job description and resume content:
 
             Job Description:
@@ -38,24 +36,24 @@ i want you to act as an HR recruiter. Your task is to match a job description wi
             Candidate's Resume:
             {resume}
 
-            Please return a similarity score from 0 to 100 based on the relevance of skills, experience, and education from job description on the resume.
-            If there are strong matches, return a high score; if there are few or no matches, return a low score.
+            Please return a similarity score from 0 to 100 based on the relevance of skills, experience, and education.
+            If there are strong matches, return a high score; if there are few or no matches, return a low score
+            make sure the score is in the following format : "LLM Response: ## Similarity Score: 0-100".
             """
         )
+
         response = self.model.generate_content(instruction)
 
-        # Check if the response has valid parts
-        if response.parts and len(response.parts) > 0:
-            print(f"LLM Response: {response.parts[0].text}")  # Debug print for the LLM response
+        # Print the full LLM response for debugging
+        print(f"LLM Response: {response.parts[0].text}")  # Debug print
 
-            # Extract similarity score from response
-            score_pattern = r'\d{1,3}'
-            match = re.search(score_pattern, response.parts[0].text)
-            if match:
-                return int(match.group(0))  # Return the score as an integer
+        # Extract similarity score from response using regex
+        match = re.search(r'Similarity Score:\s*(\d+)',response.parts[0].text)
 
-        # Log an error if the response is invalid or empty
-        print(f"Invalid response from LLM for job description: {job_description}")
+        if match:
+            return int(match.group(1))  # Return the score as an integer
+
+        print(f"No valid score found in response for job description: {job_description}")  # Debug print
         return 0  # Default score if no valid response found
 
     def rank_resumes(self, job_title):
@@ -112,23 +110,26 @@ i want you to act as an HR recruiter. Your task is to match a job description wi
 
                 similarity_score = self.generate_similarity_score(job_description, combined_resume_text)
 
-                # Create a new JSON object to store in a new collection
-                result_data = {
-                    "Name": name,
-                    "Email": email,
-                    "Phone": phone,
-                    "Similarity Score": similarity_score
-                }
+                # Only insert if the similarity score is greater than 0
+                if similarity_score > 0:
+                    # Create a new JSON object to store in a new collection
+                    result_data = {
+                        "Name": name,
+                        "Email": email,
+                        "Phone": phone,
+                        "Similarity Score": similarity_score
+                    }
 
-                # Store results in a new collection named after the job title
-                results_collection_name = f"{job_title.replace(' ', '_').upper()}_RESULTS"
-                results_collection = self.db[results_collection_name]
-                results_collection.insert_one(result_data)
-                print(f"Processed and stored data for {name} in {results_collection_name}.")
+                    # Store results in a new collection named after the job title
+                    results_collection_name = f"{job_title.replace(' ', '_').upper()}_RESULTS"
+                    results_collection = self.db[results_collection_name]
+                    results_collection.insert_one(result_data)
+                    print(f"Processed and stored data for {name} in {results_collection_name}.")
+                else:
+                    print(f"Similarity score for {name} is {similarity_score}. Not inserting.")
 
             # Rank the resumes based on similarity scores
             self.rank_resumes(job_title)
-
 
 if __name__ == "__main__":
     api_key = "AIzaSyDhlz1NsYZ3ZjHQ4O71M115LaSxO1BvCsA"  # Replace with your actual API key
