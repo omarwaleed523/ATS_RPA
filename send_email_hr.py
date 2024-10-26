@@ -8,6 +8,7 @@ import smtplib
 from pymongo import MongoClient
 import tkinter as tk
 from tkinter import messagebox
+from bson import ObjectId
 
 
 class JobDescriptionProcessor:
@@ -20,7 +21,7 @@ class JobDescriptionProcessor:
             - Experience
             - Education
 
-            Ensure you return these information even if they aren't explicitly mentioned in the email.
+            Ensure you return this information even if they aren't explicitly mentioned in the email.
             Return the data in JSON format with the fields as keys.
 
             Job Description:
@@ -34,7 +35,7 @@ class JobDescriptionProcessor:
         self.db = self.client[db_name]
         self.collection = self.db[collection_name]
 
-    def generate_job_info(self, job_description, job_title):
+    def generate_job_info(self, job_description):
         """Generate structured information from the job description text."""
         response = self.model.generate_content(f'{job_description}')
 
@@ -46,8 +47,6 @@ class JobDescriptionProcessor:
             clean_response_text = matches[0]  # Take the first match if multiple found
             try:
                 json_response = json.loads(clean_response_text)
-                json_response['Job Title'] = job_title  # Use the provided job title
-                json_response['Job Description'] = job_description  # Include full job description
                 return json_response
             except json.JSONDecodeError:
                 print("Error decoding JSON response from the model.")
@@ -56,30 +55,18 @@ class JobDescriptionProcessor:
         return None
 
     def save_to_mongodb(self, data):
-        """Save job data to MongoDB and return the document ID."""
+        """Save job data to MongoDB."""
         try:
             result = self.collection.insert_one(data)
-            data['_id'] = str(result.inserted_id)  # Convert ObjectId to string and add it to the data
+            data['_id'] = str(result.inserted_id)  # Store the string ID in the data
             print("Job description saved successfully to MongoDB.")
         except Exception as e:
             print(f"Error saving job description to MongoDB: {e}")
-        return data  # Return data with added ID
-
-    def save_json_file(self, data):
-        """Save job data to a JSON file."""
-        job_title = data['Job Title'].replace(" ", "_")  # Replace spaces for file name
-        json_file_path = os.path.join("C:\\Users\\omarw\\PycharmProjects\\rpa_ats\\job_description_data",
-                                      f"{job_title}.json")
-
-        try:
-            with open(json_file_path, 'w') as json_file:
-                json.dump(data, json_file, indent=4)
-            print(f"Job description saved successfully to {json_file_path}.")
-        except Exception as e:
-            print(f"Error saving job description to file: {e}")
 
 
-def send_email_with_job_info(email_sender, email_password, email_receiver, job_description, processor, job_title):
+
+
+def send_email_with_job_info(email_sender, email_password, email_receivers, job_description, job_title, processor):
     """Send email with job description and extract relevant details for MongoDB."""
     subject = 'New Job Description Posting'
     body = job_description
@@ -87,61 +74,69 @@ def send_email_with_job_info(email_sender, email_password, email_receiver, job_d
     # Send email
     em = EmailMessage()
     em['From'] = email_sender
-    em['To'] = email_receiver
+    em['To'] = ", ".join(email_receivers)
     em['Subject'] = subject
     em.set_content(body)
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
         smtp.login(email_sender, email_password)
-        smtp.sendmail(email_sender, email_receiver, em.as_string())
+        smtp.sendmail(email_sender, email_receivers, em.as_string())
         print("Email sent successfully.")
 
     # Process job description text and save it
-    extracted_data = processor.generate_job_info(job_description, job_title)
+    extracted_data = processor.generate_job_info(job_description)
     if extracted_data:
+        extracted_data['Job Title'] = job_title  # Include job title in the data
+        extracted_data['Job Description'] = job_description  # Include the full job description
         processor.save_to_mongodb(extracted_data)
-        processor.save_json_file(extracted_data)
 
 
-def create_gui(processor):
-    """Create a simple GUI for inputting job descriptions and sending emails."""
 
-    def send_job_description():
-        job_title = job_title_entry.get()
-        job_description = job_description_entry.get("1.0", "end").strip()
-        recipients = recipients_entry.get().split(",")  # Split recipients by comma
+def run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_password):
+    """Run the GUI for sending job descriptions."""
 
-        if job_title and job_description:
-            for recipient in recipients:
-                send_email_with_job_info(email_sender, email_password, recipient.strip(), job_description, processor,
-                                         job_title)
+    def submit():
+        job_title = title_input.get().strip()
+        job_description = job_desc_text.get("1.0", tk.END).strip()
+        email_receivers = email_input.get("1.0", tk.END).strip().split(",")
+        if not job_title or not job_description or not email_receivers:
+            messagebox.showwarning("Input Error", "Please enter job title, job description, and email addresses.")
+            return
 
-            messagebox.showinfo("Success", "Email sent successfully.")
-            job_title_entry.delete(0, tk.END)
-            job_description_entry.delete("1.0", tk.END)
-            recipients_entry.delete(0, tk.END)
+        send_email_with_job_info(email_sender, email_password, email_receivers, job_description, job_title, processor)
+
+        response = messagebox.askyesno("Success", "Email sent successfully! Do you want to send another email?")
+        if response:
+            title_input.delete(0, tk.END)
+            job_desc_text.delete("1.0", tk.END)
+            email_input.delete("1.0", tk.END)
         else:
-            messagebox.showerror("Error", "Please fill in all fields.")
+            root.quit()
 
-    window = tk.Tk()
-    window.title("Job Description Email Sender")
+    # Initialize processor
+    processor = JobDescriptionProcessor(api_key, mongo_uri, db_name, collection_name)
 
-    tk.Label(window, text="Job Title:").pack()
-    job_title_entry = tk.Entry(window)
-    job_title_entry.pack()
+    # Set up the GUI
+    root = tk.Tk()
+    root.title("Job Description Email Sender")
 
-    tk.Label(window, text="Job Description:").pack()
-    job_description_entry = tk.Text(window, height=10)
-    job_description_entry.pack()
+    tk.Label(root, text="Job Title:").pack()
+    title_input = tk.Entry(root, width=50)
+    title_input.pack()
 
-    tk.Label(window, text="Recipients (comma-separated):").pack()
-    recipients_entry = tk.Entry(window)
-    recipients_entry.pack()
+    tk.Label(root, text="Job Description:").pack()
+    job_desc_text = tk.Text(root, height=10, width=50)
+    job_desc_text.pack()
 
-    tk.Button(window, text="Send Email", command=send_job_description).pack()
+    tk.Label(root, text="Email Addresses (comma-separated):").pack()
+    email_input = tk.Text(root, height=2, width=50)
+    email_input.pack()
 
-    window.mainloop()
+    submit_button = tk.Button(root, text="Send Email", command=submit)
+    submit_button.pack()
+
+    root.mainloop()
 
 
 if __name__ == "__main__":
@@ -153,6 +148,5 @@ if __name__ == "__main__":
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'
 
-    # Initialize processor and create GUI
-    processor = JobDescriptionProcessor(api_key, mongo_uri, db_name, collection_name)
-    create_gui(processor)
+    # Run the GUI application
+    run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_password)
