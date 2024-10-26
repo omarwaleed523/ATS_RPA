@@ -5,11 +5,11 @@ import json
 import re
 from pdfminer.high_level import extract_text as extract_pdf_text
 import docx2txt
-from PIL import Image
-import pytesseract
+from pymongo import MongoClient  # Import MongoClient
+
 
 class Gemini:
-    def __init__(self, api_key):
+    def __init__(self, api_key, mongo_uri, db_name, collection_name):
         genai.configure(api_key=api_key)
         self.instruction = (
             """
@@ -30,6 +30,11 @@ class Gemini:
         )
         self.model = genai.GenerativeModel("models/gemini-1.5-flash", system_instruction=self.instruction)
 
+        # MongoDB setup
+        self.client = MongoClient(mongo_uri)
+        self.db = self.client[db_name]
+        self.collection = self.db[collection_name]
+
     def extract_text_from_pdf(self, pdf_path):
         """Extract text from a PDF file."""
         try:
@@ -49,21 +54,13 @@ class Gemini:
             print(f"Error extracting text from DOCX: {e}")
             return None
 
-    def save_json(self, data, resume_filename):
-        """Save data in JSON format with the same name as the resume."""
+    def save_to_mongodb(self, data):
+        """Save data to MongoDB."""
         try:
-            directory = "C:\\Users\\omarw\\PycharmProjects\\rpa_ats\\resumes_data"
-            os.makedirs(directory, exist_ok=True)
-
-            # Create a JSON filename based on the resume filename
-            json_filename = os.path.splitext(resume_filename)[0] + "_data.json"
-            filepath = os.path.join(directory, json_filename)
-
-            with open(filepath, 'w') as json_file:
-                json.dump(data, json_file, indent=4)
-            print(f"Data saved successfully in {filepath}")
+            self.collection.insert_one(data)  # Insert the JSON data into the collection
+            print("Data saved successfully to MongoDB.")
         except Exception as e:
-            print(f"Error saving JSON data: {e}")
+            print(f"Error saving data to MongoDB: {e}")
 
     def generate_response(self, extracted_text):
         """Generate response from the LLM based on the extracted text."""
@@ -111,7 +108,7 @@ class Gemini:
         if extracted_text:
             json_response = self.generate_response(extracted_text)
             if json_response:  # Save JSON only if response is valid
-                self.save_json(json_response, os.path.basename(resume_path))
+                self.save_to_mongodb(json_response)  # Save to MongoDB
         else:
             print("No text extracted from the resume.")
             return None
@@ -119,7 +116,11 @@ class Gemini:
 
 if __name__ == "__main__":
     api_key = "AIzaSyDhlz1NsYZ3ZjHQ4O71M115LaSxO1BvCsA"  # Replace with your actual API key
-    gemini_instance = Gemini(api_key)
+    mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
+    db_name = "ATS"  # Replace with your database name
+    collection_name = "resumes"  # Replace with your collection name
+
+    gemini_instance = Gemini(api_key, mongo_uri, db_name, collection_name)
 
     # Example usage
     resume_file = "C:\\Users\\omarw\\PycharmProjects\\rpa_ats\\resume\\youssef.docx"  # Change this to the path of your resume file

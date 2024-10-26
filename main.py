@@ -14,7 +14,7 @@ def send_email():
 
 def resume_parser():
     # Running the other Python file
-    subprocess.run([sys.executable, "resume_parser.py"])  # Use "python" if on Windows
+    subprocess.run([sys.executable, "resume_parser2.py"])  # Use "python" if on Windows
 
 
 if __name__ == "__main__":

@@ -29,12 +29,13 @@
             "Degree": "Computer Science",
             "Institution": "MSA University",
             "Dates": "09/2021 - Present",
-            "Courses": [
+            "Related Courses": [
                 "Data Structures & Software project",
                 "Algorithms managemnt",
                 "machine learning",
                 "Digital Logic Design",
-                "Advanced Web Fundamentals of Database",
+                "Advanced Web",
+                "Fundamentals of Database",
                 "Programming Systems",
                 "Probability and Statistics",
                 "Calculus"

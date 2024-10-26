@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="changed the python script run location">
-      <change afterPath="$PROJECT_DIR$/resume_parser2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongo_credentials" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/send_email_hr.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_email_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_email_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resumes_data/10554236.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume_parser2.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_parser2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resumes_data/youssef_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/resumes_data/youssef_data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,7 @@
     "Python.main.executor": "Run",
     "Python.resume_parser.executor": "Run",
     "Python.resume_parser2.executor": "Run",
+    "Python.send_email_hr.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -68,7 +70,7 @@
       <recent name="C:\Users\omarw\PycharmProjects\rpa_ats\resume" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.resume_parser2">
+  <component name="RunManager" selected="Python.send_email_hr">
     <configuration name="get_email_info" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
@@ -159,14 +161,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="send_email_hr" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="rpa_ats" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/send_email_hr.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.resume_parser" />
-      <item itemvalue="Python.resume_parser2" />
+      <item itemvalue="Python.send_email_hr" />
       <item itemvalue="Python.get_email_info" />
+      <item itemvalue="Python.resume_parser2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.send_email_hr" />
         <item itemvalue="Python.resume_parser2" />
         <item itemvalue="Python.get_email_info" />
       </list>
@@ -244,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729869931482</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed the python script run location">
+      <option name="closed" value="true" />
+      <created>1729891956408</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729891956408</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
