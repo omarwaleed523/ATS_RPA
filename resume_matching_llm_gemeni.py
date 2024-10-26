@@ -1,6 +1,7 @@
 import google.generativeai as genai
 import json
 import re
+import subprocess  # To call the email script
 from pymongo import MongoClient
 
 
@@ -48,13 +49,24 @@ class JobSimilarityMatcher:
         print(f"LLM Response: {response.parts[0].text}")  # Debug print
 
         # Extract similarity score from response using regex
-        match = re.search(r'Similarity Score:\s*(\d+)',response.parts[0].text)
+        match = re.search(r'Similarity Score:\s*(\d+)', response.parts[0].text)
 
         if match:
             return int(match.group(1))  # Return the score as an integer
 
         print(f"No valid score found in response for job description: {job_description}")  # Debug print
         return 0  # Default score if no valid response found
+
+    def send_acceptance_email(self, email, name):
+        """Send acceptance email using the external script."""
+        try:
+            # Adjust the command as necessary for your environment
+            subprocess.run(["python", "send_email_acceptance.py", email, name], check=True)
+            print(f"Acceptance email sent to {name} at {email}.")
+            return True
+        except Exception as e:
+            print(f"Failed to send acceptance email to {name}: {str(e)}")
+            return False
 
     def rank_resumes(self, job_title):
         """Rank resumes based on similarity scores after insertion."""
@@ -117,7 +129,8 @@ class JobSimilarityMatcher:
                         "Name": name,
                         "Email": email,
                         "Phone": phone,
-                        "Similarity Score": similarity_score
+                        "Similarity Score": similarity_score,
+                        "Acceptance Email Sent": False  # New field to track email sending status
                     }
 
                     # Store results in a new collection named after the job title
@@ -125,8 +138,6 @@ class JobSimilarityMatcher:
                     results_collection = self.db[results_collection_name]
                     results_collection.insert_one(result_data)
                     print(f"Processed and stored data for {name} in {results_collection_name}.")
-                else:
-                    print(f"Similarity score for {name} is {similarity_score}. Not inserting.")
 
             # Rank the resumes based on similarity scores
             self.rank_resumes(job_title)
