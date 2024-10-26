@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retrieve_rank.py" beforeDir="false" afterPath="$PROJECT_DIR$/retrieve_rank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_email_acceptance.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_email_acceptance.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +60,7 @@
     "Python.resume_parser2.executor": "Run",
     "Python.retreive_rank.executor": "Run",
     "Python.retrieve_rank (1).executor": "Run",
+    "Python.retrieve_rank.executor": "Run",
     "Python.send_email_hr.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -71,7 +74,7 @@
       <recent name="C:\Users\omarw\PycharmProjects\rpa_ats\resume" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager">
     <configuration name="get_mail_by_job_title" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
@@ -239,9 +242,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.resume_matching_llm_gemeni (1)" />
         <item itemvalue="Python.get_mail_by_job_title" />
         <item itemvalue="Python.retrieve_rank (1)" />
-        <item itemvalue="Python.resume_matching_llm_gemeni (1)" />
         <item itemvalue="Python.retrieve_rank" />
         <item itemvalue="Python.resume_matching_llm_gemeni" />
       </list>
@@ -407,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729971797871</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729972281449</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1729972281449</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

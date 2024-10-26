@@ -4,10 +4,10 @@ from email.message import EmailMessage
 import smtplib
 import sys
 
-def send_email(email_sender, email_password, email_receiver, candidate_name):
+def send_email(email_sender, email_password, email_receiver, candidate_name, job_title):
     subject = "Congratulations!"
     body = f"Dear {candidate_name},\n\n" \
-           "Congratulations! You have been ranked.\n" \
+           f"Congratulations! You have been ranked for the position of {job_title}.\n" \
            "We appreciate your application and look forward to discussing your candidacy further.\n\n" \
            "Best Regards,\nYour Company"
 
@@ -29,5 +29,6 @@ if __name__ == "__main__":
     email_password = 'zysg szis hdvq kbzo'  # Use environment variables for sensitive data in production
     email_receiver = sys.argv[1]
     candidate_name = sys.argv[2]
+    job_title = sys.argv[3]  # New command-line argument for job title
 
-    send_email(email_sender, email_password, email_receiver, candidate_name)
+    send_email(email_sender, email_password, email_receiver, candidate_name, job_title)

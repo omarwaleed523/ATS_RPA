@@ -46,6 +46,7 @@ class CandidateRetriever:
             if candidate['Rank'] is not None and not candidate['Acceptance Email Sent']:  # Ensure rank exists and email not sent
                 email_receiver = candidate['Email']
                 candidate_name = candidate['Name']
+                job_title = candidate['Job Title']  # Get the job title for the email
 
                 # Check for None values
                 if email_receiver is None or candidate_name is None:
@@ -56,7 +57,7 @@ class CandidateRetriever:
 
                 # Call the email sending script with error handling
                 try:
-                    subprocess.run(['python', self.email_script, email_receiver, candidate_name], check=True)
+                    subprocess.run(['python', self.email_script, email_receiver, candidate_name, job_title], check=True)
 
                     # Update the document in MongoDB to set 'Acceptance Email Sent' to True
                     self.db[candidate['Job Title'].replace(" ", "_") + "_RESULTS"].update_one(
