@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74fc81af-f6b1-430e-9905-e2f0f932188d" name="Changes" comment="added new functionalities">
+      <change afterPath="$PROJECT_DIR$/retrieve_rank.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/send_email_acceptance.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume_matching_llm_gemeni.py" beforeDir="false" afterPath="$PROJECT_DIR$/resume_matching_llm_gemeni.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_email_info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume_parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_email.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +62,7 @@
     "Python.resume_matching_llm_gemeni.executor": "Run",
     "Python.resume_parser.executor": "Run",
     "Python.resume_parser2.executor": "Run",
+    "Python.retreive_rank.executor": "Run",
     "Python.send_email_hr.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -70,7 +76,7 @@
       <recent name="C:\Users\omarw\PycharmProjects\rpa_ats\resume" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.resume_matching_llm_gemeni (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="get_mail_by_job_title" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
@@ -183,7 +189,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="resume_parser2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="retrieve_rank" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rpa_ats" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,7 +202,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/resume_parser2.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\omarw\PycharmProjects\rpa_ats\retrieve_rank.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -233,16 +239,16 @@
       <item itemvalue="Python.get_mail_by_job_title" />
       <item itemvalue="Python.resume_matching_llm_gemeni" />
       <item itemvalue="Python.resume_matching_llm_gemeni (1)" />
+      <item itemvalue="Python.retrieve_rank" />
       <item itemvalue="Python.send_email_hr" />
-      <item itemvalue="Python.resume_parser2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.retrieve_rank" />
         <item itemvalue="Python.resume_matching_llm_gemeni (1)" />
         <item itemvalue="Python.resume_matching_llm_gemeni" />
         <item itemvalue="Python.get_mail_by_job_title" />
         <item itemvalue="Python.send_email_hr" />
-        <item itemvalue="Python.resume_parser2" />
       </list>
     </recent_temporary>
   </component>
@@ -374,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729966194618</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added new functionalities">
+      <option name="closed" value="true" />
+      <created>1729966489241</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729966489241</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

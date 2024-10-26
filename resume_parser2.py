@@ -106,13 +106,17 @@ class Gemini:
             extracted_text = self.extract_text_from_pdf(resume_path)
         elif resume_path.endswith('.docx'):
             extracted_text = self.extract_text_from_docx(resume_path)
+
         if extracted_text:
             json_response = self.generate_response(extracted_text)
             if json_response:  # Save JSON only if response is valid
                 self.save_to_mongodb(job_title, json_response)  # Save to MongoDB
+                print("Resume has been sent successfully.")
+                os._exit(0)  # Forcefully close the process
         else:
             print("No text extracted from the resume.")
             return None
+
 
 if __name__ == "__main__":
     api_key = "AIzaSyDhlz1NsYZ3ZjHQ4O71M115LaSxO1BvCsA"  # Replace with your actual API key
