@@ -3,7 +3,7 @@ import json
 import re
 import subprocess  # To call the email script
 from pymongo import MongoClient
-
+import time  # Import time module for sleep functionality
 
 class JobSimilarityMatcher:
     def __init__(self, api_key, mongo_uri, db_name):
@@ -43,6 +43,9 @@ class JobSimilarityMatcher:
             please reply only with Similarity Score: 0-100
             """
         )
+
+        # Sleep for a short duration before making the API call
+        time.sleep(4)
 
         response = self.model.generate_content(instruction)
 
@@ -136,7 +139,7 @@ class JobSimilarityMatcher:
                 self.rank_resumes(department, results)
 
 if __name__ == "__main__":
-    api_key = "AIzaSyCIHEJQgSzmlzTMjGtfpJzu3IgVXW_R-qM"  # Replace with your actual API key
+    api_key = "AIzaSyDhlz1NsYZ3ZjHQ4O71M115LaSxO1BvCsA"  # Replace with your actual API key
     mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
     db_name = "ATS"
 
