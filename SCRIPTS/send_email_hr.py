@@ -7,6 +7,7 @@ import smtplib
 from pymongo import MongoClient
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import os
 
 
 class JobDescriptionProcessor:
@@ -104,26 +105,30 @@ def run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_pa
     """Run the GUI for sending job descriptions."""
 
     def submit():
-        file_path = filedialog.askopenfilename(title="Select Job Post File", filetypes=[("Text files", "*.txt")])
-        if not file_path:
-            messagebox.showwarning("Input Error", "Please select a job post file.")
+        directory_path = filedialog.askdirectory(title="Select Job Post Directory")
+        if not directory_path:
+            messagebox.showwarning("Input Error", "Please select a job post directory.")
             return
 
-        job_description_text = load_job_post(file_path)
         email_receivers = email_input.get("1.0", tk.END).strip().split(",")
 
-        if not job_description_text or not email_receivers:
-            messagebox.showwarning("Input Error", "Please enter the job description and email addresses.")
+        if not email_receivers:
+            messagebox.showwarning("Input Error", "Please enter the email addresses.")
             return
 
-        job_description = {
-            "Job Title": re.search(r"Job Title:\s*(.*)", job_description_text).group(1),
-            "Job Description": job_description_text
-        }
+        for filename in os.listdir(directory_path):
+            if filename.endswith('.txt'):
+                file_path = os.path.join(directory_path, filename)
+                job_description_text = load_job_post(file_path)
 
-        send_email_with_job_info(email_sender, email_password, email_receivers, job_description, processor)
+                job_description = {
+                    "Job Title": re.search(r"Job Title:\s*(.*)", job_description_text).group(1),
+                    "Job Description": job_description_text
+                }
 
-        response = messagebox.askyesno("Success", "Email sent successfully! Do you want to send another email?")
+                send_email_with_job_info(email_sender, email_password, email_receivers, job_description, processor)
+
+        response = messagebox.askyesno("Success", "Emails sent successfully! Do you want to send more emails?")
         if response:
             email_input.delete("1.0", tk.END)
         else:
@@ -140,20 +145,20 @@ def run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_pa
     email_input = tk.Text(root, height=2, width=50)
     email_input.pack()
 
-    submit_button = tk.Button(root, text="Send Job Post", command=submit)
+    submit_button = tk.Button(root, text="Send Job Posts", command=submit)
     submit_button.pack()
 
     root.mainloop()
 
 
 if __name__ == "__main__":
-    api_key = "AIzaSyCIHEJQgSzmlzTMjGtfpJzu3IgVXW_R-qM"
-    mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
+    api_key = "AIzaSyCxSIjh_yo0cq6624pPtzF1hnlmpJYnSi8"
+    mongo_uri = "mongodb+srv://angrym21:RHVbIpuGrbIIPriS@cluster0.a76hu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name = "ATS"
     collection_name = "job_descriptions"
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'
-    job_file_path = 'C:\\Users\\omarw\\PycharmProjects\\RPA_ATS#\\job_post_IT_example.txt'  # Path to the input text file
+    job_file_path = rf"C:\Users\tarek\Desktop\pythonProject\job_post"  
 
     # Run the GUI application
     run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_password)
