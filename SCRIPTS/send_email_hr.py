@@ -158,7 +158,7 @@ if __name__ == "__main__":
     collection_name = "job_descriptions"
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'
-    job_file_path = rf"C:\Users\tarek\Desktop\pythonProject\job_post"  
+    job_file_path = rf"C:\Users\tarek\Desktop\pythonProject\job_post_examples"
 
     # Run the GUI application
     run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_password)
