@@ -1,9 +1,11 @@
+import time
+
 import google.generativeai as genai
 import json
 import re
 import subprocess  # To call the email script
 from pymongo import MongoClient
-import time  # Import time module for sleep functionality
+
 
 class JobSimilarityMatcher:
     def __init__(self, api_key, mongo_uri, db_name):
@@ -44,8 +46,6 @@ class JobSimilarityMatcher:
             """
         )
 
-        # Sleep for a short duration before making the API call
-        time.sleep(4)
 
         response = self.model.generate_content(instruction)
 
@@ -138,12 +138,14 @@ class JobSimilarityMatcher:
             if results:  # Only rank if there are new results
                 self.rank_resumes(department, results)
 
-if __name__ == "__main__":
-    api_key = "AIzaSyDhlz1NsYZ3ZjHQ4O71M115LaSxO1BvCsA"  # Replace with your actual API key
-    mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
+def main():
+    api_key = "AIzaSyBi18Mq5DYWKAqXESc4FVTnuX3j_kSDFNw"
+    mongo_uri = "mongodb+srv://angrym21:RHVbIpuGrbIIPriS@cluster0.a76hu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name = "ATS"
 
     matcher = JobSimilarityMatcher(api_key, mongo_uri, db_name)
 
     # Process resumes for all job titles dynamically
     matcher.process_all_resumes()
+
+main()
