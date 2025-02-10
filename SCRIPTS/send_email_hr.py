@@ -151,14 +151,17 @@ def run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_pa
     root.mainloop()
 
 
-if __name__ == "__main__":
-    api_key = "AIzaSyCxSIjh_yo0cq6624pPtzF1hnlmpJYnSi8"
+def main():
+    api_key = "AIzaSyBi18Mq5DYWKAqXESc4FVTnuX3j_kSDFNw"
     mongo_uri = "mongodb+srv://angrym21:RHVbIpuGrbIIPriS@cluster0.a76hu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name = "ATS"
     collection_name = "job_descriptions"
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'
-    job_file_path = rf"C:\Users\tarek\Desktop\pythonProject\job_post_examples"
+    job_file_path = rf"C:\Users\omarw\Desktop\scripts\job_post_examples\job_post_examples"
 
     # Run the GUI application
     run_gui(api_key, mongo_uri, db_name, collection_name, email_sender, email_password)
+
+
+main()
