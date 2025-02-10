@@ -27,8 +27,9 @@ class Gemini:
               BUSINESS-DEVELOPMENT, CHEF, CONSTRUCTION, CONSULTANT, DESIGNER, DIGITAL-MEDIA,
               ENGINEERING, FINANCE, FITNESS, HEALTHCARE, HR, INFORMATION-TECHNOLOGY, PUBLIC-RELATIONS,
               SALES, TEACHER.
-              make sure categorize based on the related skills,education,and experiance with one of the 24 departmens mentioned
-
+              make sure categorize based on the related skills,education,and experience with one of the 24 departments mentioned
+              and do not write any other department other than the 24 departments mentioned above
+              
             Ensure you return names, emails, and phone numbers even if they aren't explicitly labeled in the text.
             If missing, use placeholders like 'John Doe', '0123456789', 'example@gmail.com'.
             Return the data in JSON format with these fields as keys.
@@ -75,7 +76,7 @@ class Gemini:
     def generate_response(self, extracted_text):
         """Generate response from LLM based on extracted text."""
         response = self.model.generate_content(f'{extracted_text}')
-
+        time.sleep(4)
         # Extract JSON from the response
         json_pattern = r'\{.*\}'
         matches = re.findall(json_pattern, response.text, re.DOTALL)
@@ -113,11 +114,13 @@ class Gemini:
                 print(f"Failed to extract text from: {filename}")
 
 
-if __name__ == "__main__":
-    api_key = "AIzaSyCIHEJQgSzmlzTMjGtfpJzu3IgVXW_R-qM"
-    mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
+def main():
+    api_key = "AIzaSyBi18Mq5DYWKAqXESc4FVTnuX3j_kSDFNw"
+    mongo_uri = "mongodb+srv://angrym21:RHVbIpuGrbIIPriS@cluster0.a76hu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name = "ATS"
-    resume_dir = "C:\\Users\\omarw\\PycharmProjects\\RPA_ATS#\\Resumes\\test"
+    resume_dir = rf"C:\Users\omarw\Desktop\scripts\all"
 
     gemini_instance = Gemini(api_key, mongo_uri, db_name, resume_dir)
     gemini_instance.process_resumes()
+
+main()
