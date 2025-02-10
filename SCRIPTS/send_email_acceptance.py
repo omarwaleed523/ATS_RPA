@@ -65,11 +65,13 @@ def process_ranked_candidates(email_sender, email_password, mongo_uri, db_name):
                 results_collection.update_one({"_id": candidate["_id"]}, {"$set": {"Acceptance Email Sent": True}})
                 print(f"Marked {name} as notified for {job_title}.")
 
-if __name__ == "__main__":
+def main():
     # Setup email sender credentials and MongoDB connection
     email_sender = 'angrym21@gmail.com'
     email_password = 'zysg szis hdvq kbzo'  # Use environment variables for sensitive data in production
-    mongo_uri = "mongodb+srv://omarwaleed5234:VuAXN91kEyFGzg7i@ats.7cukr.mongodb.net/?retryWrites=true&w=majority&appName=ATS"
+    mongo_uri = "mongodb+srv://angrym21:RHVbIpuGrbIIPriS@cluster0.a76hu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name = "ATS"
     # Process candidates to send emails
     process_ranked_candidates(email_sender, email_password, mongo_uri, db_name)
+
+main()
