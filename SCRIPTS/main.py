@@ -46,7 +46,5 @@ def main():
     resume_parsing()
     resume_matching()
     send_email_acceptance()
-    display_total_runtime()  # Display total runtime after all processes
-
 if __name__ == "__main__":
     main()
